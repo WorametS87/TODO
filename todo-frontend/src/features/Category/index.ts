@@ -1,4 +1,2 @@
-export * from './dto';
-export * from './service';
-export * from './controller';
-export * from './view';
+// features/Category/index.ts
+export { default } from './Controller/CategoryController';

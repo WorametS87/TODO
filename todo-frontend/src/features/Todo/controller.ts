@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import { TodoService } from './service';
+import { TodoService } from './Service/TodoService';
 import { TodoDto, CreateTodoDto, UpdateTodoDto, TodoPageOptionsDto } from './dto';
 import { TodoStatus } from '../../constants';
 

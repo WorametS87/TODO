@@ -1,30 +1,25 @@
-import { TodoStatus } from '../../constants';
-import { CategoryDto } from '../Category/dto';
-
 export interface TodoDto {
     id: number;
     title: string;
     description?: string;
-    status: TodoStatus;
-    category?: CategoryDto;
-    createdAt?: string;
-    updatedAt?: string;
+    status: 'PENDING' | 'DONE';
+    category?: {
+        id: number;
+        name: string;
+    };
 }
 
 export interface CreateTodoDto {
     title: string;
     description?: string;
-    status?: TodoStatus;
     categoryId?: number;
 }
 
 export interface UpdateTodoDto {
     title?: string;
     description?: string;
-    status?: TodoStatus;
     categoryId?: number;
 }
-
 export interface TodoPageOptionsDto {
     page?: number;
     take?: number;

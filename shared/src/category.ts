@@ -1,9 +1,19 @@
+// shared/category.ts
+
+/* ======================
+   Core DTO
+====================== */
+
 export interface CategoryDto {
     id: number;
     name: string;
     createdAt?: string;
     updatedAt?: string;
 }
+
+/* ======================
+   Create / Update
+====================== */
 
 export interface CreateCategoryDto {
     name: string;
@@ -12,6 +22,10 @@ export interface CreateCategoryDto {
 export interface UpdateCategoryDto {
     name?: string;
 }
+
+/* ======================
+   Pagination
+====================== */
 
 export interface CategoryPageOptionsDto {
     page?: number;

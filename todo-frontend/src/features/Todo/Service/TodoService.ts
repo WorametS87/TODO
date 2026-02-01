@@ -1,14 +1,14 @@
-import { apiClient } from '../../services';
-import { TodoDto, CreateTodoDto, UpdateTodoDto, TodoPageDto, TodoPageOptionsDto } from './dto';
-import { TodoStatus } from '../../constants';
+import { apiClient } from '../../../services';
+import { TodoDto, CreateTodoDto, UpdateTodoDto, TodoPageDto, TodoPageOptionsDto } from '../dto';
+import { TodoStatus } from '../../../constants';
 
 export class TodoService {
     static async getAll(options?: TodoPageOptionsDto): Promise<TodoPageDto> {
         const response = await apiClient.get<TodoDto[]>('/todo', { params: options });
-        
+
         // Backend returns array directly, so we need to convert to paginated format
         const data = Array.isArray(response.data) ? response.data : [];
-        
+
         return {
             data,
             meta: {

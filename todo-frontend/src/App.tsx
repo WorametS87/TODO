@@ -3,8 +3,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ErrorBoundary } from './components';
 import { MainLayout } from './layout';
-import { TodoView } from './features/Todo';
-import { CategoryView } from './features/Category';
+import TodoController from './features/Todo/Controller/TodoController';
+import CategoryController from './features/Category/Controller/CategoryController';
 
 const theme = createTheme({
     palette: {
@@ -26,10 +26,11 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<MainLayout />}>
-                            <Route index element={<TodoView />} />
-                            <Route path="categories" element={<CategoryView />} />
+                            <Route index element={<TodoController />} />
+                            <Route path="categories" element={<CategoryController />} />
                         </Route>
                     </Routes>
+
                 </BrowserRouter>
             </ThemeProvider>
         </ErrorBoundary>
