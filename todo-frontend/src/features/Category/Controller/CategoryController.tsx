@@ -1,14 +1,8 @@
 // features/Category/Controller/CategoryController.tsx
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { CategoryService } from '../Service/CategoryService';
+import { CategoryService, CategoryDto, CreateCategoryDto, CategoryPageOptionsDto } from '../Service/CategoryService';
 import { CategoryView } from '../View/CategoryView';
-
-import {
-    CategoryDto,
-    CreateCategoryDto,
-    CategoryPageOptionsDto,
-} from '@shared/category';
 
 export default function CategoryController() {
     const [categories, setCategories] = useState<CategoryDto[]>([]);

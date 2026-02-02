@@ -25,6 +25,8 @@ export interface TodoPageOptionsDto {
     take?: number;
     order?: 'ASC' | 'DESC';
     search?: string;
+    status?: 'PENDING' | 'DONE';
+    categoryId?: number;
 }
 
 export interface TodoPageDto {

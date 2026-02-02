@@ -22,7 +22,7 @@ import {
   TableContainer,
 } from '@mui/material';
 import { Add, Edit, Delete } from '@mui/icons-material';
-import { CategoryDto, CreateCategoryDto } from '@shared/category';
+import { CategoryDto, CreateCategoryDto } from '../Service/CategoryService';
 
 export interface CategoryViewProps {
   categories: CategoryDto[];
@@ -32,7 +32,7 @@ export interface CategoryViewProps {
   dialogOpen: boolean;
   editing?: CategoryDto | null;
 
-  // ✅ ตรงกับของจริงที่ controller ส่งมา
+
   form: UseFormReturn<CreateCategoryDto>;
 
   onOpenCreate: () => void;

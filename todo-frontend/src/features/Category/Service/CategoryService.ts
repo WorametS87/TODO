@@ -1,11 +1,38 @@
-import {
-  CategoryDto,
-  CreateCategoryDto,
-  UpdateCategoryDto,
-  CategoryPageDto,
-  CategoryPageOptionsDto,
-} from '@shared/category';
-import { apiClient } from 'src/services/apiClient';
+import { apiClient } from '../../../services/apiClient';
+
+// Types from backend
+export interface CategoryDto {
+  id: number;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CreateCategoryDto {
+  name: string;
+}
+
+export interface UpdateCategoryDto {
+  name?: string;
+}
+
+export interface CategoryPageOptionsDto {
+  page?: number;
+  take?: number;
+  order?: 'ASC' | 'DESC';
+}
+
+export interface CategoryPageDto {
+  data: CategoryDto[];
+  meta: {
+    page: number;
+    take: number;
+    itemCount: number;
+    pageCount: number;
+    hasPreviousPage: boolean;
+    hasNextPage: boolean;
+  };
+}
 
 export class CategoryService {
   static async getAll(options?: CategoryPageOptionsDto): Promise<CategoryPageDto> {

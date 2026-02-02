@@ -1,6 +1,59 @@
 import { apiClient } from '../../../services';
-import { TodoDto, CreateTodoDto, UpdateTodoDto, TodoPageDto, TodoPageOptionsDto } from '../dto';
-import { TodoStatus } from '../../../constants';
+
+// Types from backend
+export enum TodoStatus {
+    PENDING = 'PENDING',
+    DONE = 'DONE',
+}
+
+export interface CategoryDto {
+    id: number;
+    name: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface TodoDto {
+    id: number;
+    title: string;
+    description?: string;
+    status: TodoStatus;
+    category?: CategoryDto | null;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface CreateTodoDto {
+    title: string;
+    description?: string;
+    categoryId?: number;
+    status?: TodoStatus;
+}
+
+export interface UpdateTodoDto {
+    title?: string;
+    description?: string;
+    categoryId?: number;
+    status?: TodoStatus;
+}
+
+export interface TodoPageOptionsDto {
+    page?: number;
+    take?: number;
+    order?: 'ASC' | 'DESC';
+}
+
+export interface TodoPageDto {
+    data: TodoDto[];
+    meta: {
+        page: number;
+        take: number;
+        itemCount: number;
+        pageCount: number;
+        hasPreviousPage: boolean;
+        hasNextPage: boolean;
+    };
+}
 
 export class TodoService {
     static async getAll(options?: TodoPageOptionsDto): Promise<TodoPageDto> {
